@@ -35,6 +35,7 @@ export class Visual implements IVisual {
   // Basemaps
   private darkMap!: L.TileLayer;
   private lightMap!: L.TileLayer;
+  private arcMap!: L.TileLayer;
 
   // Overlays
   private countiesLayer!: L.GeoJSON;
@@ -134,9 +135,14 @@ export class Visual implements IVisual {
     }).addTo(this.map);
 
     this.lightMap = L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
-      maxZoom: 19,
+      maxZoom: 20,
       attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
     });
+
+    this.arcMap = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}', {
+      maxZoom: 20,
+      attribution: 'Tiles &copy; Esri &mdash; Source: Esri, DeLorme, NAVTEQ, USGS, Intermap, iPC, NRCAN, Esri Japan, METI, Esri China (Hong Kong), Esri (Thailand), TomTom, 2012'
+    }); 
   }
 
   private initLayersAndUI() {
@@ -212,7 +218,8 @@ export class Visual implements IVisual {
     // -------- Layer control --------
     const baseMaps = {
       "Dark Basemap": this.darkMap,
-      "Light Basemap": this.lightMap
+      "Light Basemap": this.lightMap,
+      "ArcGIS Basemap": this.arcMap
     };
 
     const groupedOverlays: Record<string, Record<string, L.Layer>> = {
