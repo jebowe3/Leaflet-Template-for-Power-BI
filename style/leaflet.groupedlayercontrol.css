@@ -1,0 +1,24 @@
+.leaflet-control-layers-group-name {
+  font-weight: bold;
+  margin-bottom: .2em;
+  margin-left: 3px;
+}
+
+.leaflet-control-layers-group {
+  margin-bottom: .5em;
+}
+
+.leaflet-control-layers-scrollbar {
+  overflow-y: scroll;
+  padding-right: 10px;
+}
+
+/* in leaflet.groupedlayercontrol.css */
+.leaflet-control .gli-caret {
+  display:inline-block; width:0; height:0; margin-right:6px;
+  border-left: 5px solid transparent;
+  border-right:5px solid transparent;
+  border-top: 6px solid #444;
+  transform: rotate(-90deg);
+}
+.leaflet-control .is-collapsed .gli-caret { transform: rotate(0deg); }

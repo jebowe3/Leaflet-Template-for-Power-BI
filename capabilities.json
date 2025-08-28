@@ -1,0 +1,56 @@
+{
+  "supportsLandingPage": true,
+  "supportsEmptyDataView": true,
+  "privileges": [
+    {
+      "name": "WebAccess",
+      "essential": true,
+      "parameters": [
+        "https://*.microsoft.com",
+        "http://*.microsoft.com",
+        "https://*.openstreetmap.org",
+        "http://*.openstreetmap.org",
+        "https://*.leafletjs.com",
+        "http://*.leafletjs.com",
+        "https://*.osm.org",
+        "http://*.osm.org",
+        "https://localhost",
+        "http://localhost",
+        "https://*.w3.org",
+        "http://*.w3.org",
+        "https://ags.coverlab.org",
+        "https://*.cartocdn.com",
+        "http://*.cartocdn.com",
+        "https://*.arcgis.com",
+        "http://*.arcgis.com"
+      ]
+    }
+  ],
+  "dataRoles": [
+    { "name": "lelRegion",      "kind": "Grouping", "displayName": "LEL Region" },
+    { "name": "troop",          "kind": "Grouping", "displayName": "Troop" },
+    { "name": "county",         "kind": "Grouping", "displayName": "County" },
+    { "name": "countyModeFlag", "kind": "Measure",  "displayName": "County Mode Flag" },
+    { "name": "lelModeFlag",    "kind": "Measure",  "displayName": "LEL Mode Flag" }
+  ],
+  "dataViewMappings": [
+    {
+      "categorical": {
+        "categories": {
+          "select": [
+            { "for": { "in": "lelRegion" } },
+            { "for": { "in": "county" } },
+            { "for": { "in": "troop" } }
+          ],
+          "dataReductionAlgorithm": { "top": { "count": 10000 } }
+        },
+        "values": {
+          "select": [
+            { "for": { "in": "countyModeFlag" } },
+            { "for": { "in": "lelModeFlag" } }
+          ]
+        }
+      }
+    }
+  ]
+}
