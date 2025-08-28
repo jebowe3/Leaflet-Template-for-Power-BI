@@ -22,7 +22,9 @@
         "https://*.cartocdn.com",
         "http://*.cartocdn.com",
         "https://*.arcgis.com",
-        "http://*.arcgis.com"
+        "http://*.arcgis.com",
+        "https://server.arcgisonline.com",
+        "http://server.arcgisonline.com"        
       ]
     }
   ],
